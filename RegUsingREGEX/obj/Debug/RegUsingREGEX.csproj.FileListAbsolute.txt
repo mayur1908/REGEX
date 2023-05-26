@@ -1,0 +1,8 @@
+D:\bridgelabz\RegUsingREGEX\RegUsingREGEX\bin\Debug\RegUsingREGEX.exe.config
+D:\bridgelabz\RegUsingREGEX\RegUsingREGEX\bin\Debug\RegUsingREGEX.exe
+D:\bridgelabz\RegUsingREGEX\RegUsingREGEX\bin\Debug\RegUsingREGEX.pdb
+D:\bridgelabz\RegUsingREGEX\RegUsingREGEX\obj\Debug\RegUsingREGEX.csproj.AssemblyReference.cache
+D:\bridgelabz\RegUsingREGEX\RegUsingREGEX\obj\Debug\RegUsingREGEX.csproj.SuggestedBindingRedirects.cache
+D:\bridgelabz\RegUsingREGEX\RegUsingREGEX\obj\Debug\RegUsingREGEX.csproj.CoreCompileInputs.cache
+D:\bridgelabz\RegUsingREGEX\RegUsingREGEX\obj\Debug\RegUsingREGEX.exe
+D:\bridgelabz\RegUsingREGEX\RegUsingREGEX\obj\Debug\RegUsingREGEX.pdb
