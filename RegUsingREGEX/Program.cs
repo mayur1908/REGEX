@@ -11,20 +11,25 @@ namespace RegUsingREGEX
     {
         static void Main(string[] args)
         {
-            // Regular expression pattern to enforce minimum 8 characters
-            string pattern = ".{8,}";
+            string password = "password123";
 
-            // Test password inputs
-            string[] passwords = { "1234567", "password", "securepass", "strongpassword" };
+            // Create a regular expression pattern to match at least one uppercase letter
+            string pattern = @"[A-Z]";
 
-            foreach (string password in passwords)
+            // Create a Regex object with the pattern
+            Regex regex = new Regex(pattern);
+
+            // Use the Matches method to find all matches in the password string
+            MatchCollection matches = regex.Matches(password);
+
+            // Check if at least one match is found
+            if (matches.Count > 0)
             {
-                // Check if the password matches the pattern
-                bool isMatch = Regex.IsMatch(password, pattern);
-
-                Console.WriteLine($"Password: {password}");
-                Console.WriteLine($"Meets minimum length requirement: {isMatch}");
-                Console.WriteLine();
+                Console.WriteLine("Password meets the Rule 2 requirement.");
+            }
+            else
+            {
+                Console.WriteLine("Password does not meet the Rule 2 requirement.");
             }
         }
     }
