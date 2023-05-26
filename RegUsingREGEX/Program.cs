@@ -9,27 +9,34 @@ namespace RegUsingREGEX
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            string password = "password123";
+            string password = "MyPassw0rd"; // Example password
 
-            // Create a regular expression pattern to match at least one uppercase letter
-            string pattern = @"[A-Z]";
+            bool isPasswordValid = ValidatePassword(password);
 
-            // Create a Regex object with the pattern
-            Regex regex = new Regex(pattern);
-
-            // Use the Matches method to find all matches in the password string
-            MatchCollection matches = regex.Matches(password);
-
-            // Check if at least one match is found
-            if (matches.Count > 0)
+            if (isPasswordValid)
             {
-                Console.WriteLine("Password meets the Rule 2 requirement.");
+                Console.WriteLine("Password is valid.");
             }
             else
             {
-                Console.WriteLine("Password does not meet the Rule 2 requirement.");
+                Console.WriteLine("Password is invalid.");
+            }
+        }
+
+        static bool ValidatePassword(string password)
+        {
+            string pattern = @"\d"; // Regex pattern to match a numeric digit
+            Match match = Regex.Match(password, pattern); // Check if the password contains a numeric digit
+
+            if (match.Success)
+            {
+                return true; // The password contains at least one numeric digit
+            }
+            else
+            {
+                return false; // The password does not contain a numeric digit
             }
         }
     }
