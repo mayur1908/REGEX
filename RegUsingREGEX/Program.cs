@@ -11,27 +11,27 @@ namespace RegUsingREGEX
     {
         static void Main(string[] args)
         {
-            //  user to enter a last name
-            Console.WriteLine("Enter your last name:");
-            string lastName = Console.ReadLine();
+            //user to enter an email address
+            Console.WriteLine("Enter an email address:");
+            string email = Console.ReadLine();
 
-            //  regular expression pattern
-            string pattern = @"^[A-Z][a-zA-Z]{2,}$";
+            //regex pattern for validating the email address
+            string pattern = @"^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$";
 
             // Create a Regex object with the pattern
             Regex regex = new Regex(pattern);
 
-            // Match the last name against the pattern
-            Match match = regex.Match(lastName);
+            // Use the Match method to check if the email matches the pattern
+            Match match = regex.Match(email);
 
-            // Check if the last name is valid
+            // Check if the email matches the pattern
             if (match.Success)
             {
-                Console.WriteLine("Valid last name!");
+                Console.WriteLine("Valid email address");
             }
             else
             {
-                Console.WriteLine("Invalid last name. Last name should start with a capital letter and have a minimum of 3 characters.");
+                Console.WriteLine("Invalid email address");
             }
         }
     }
