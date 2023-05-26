@@ -11,33 +11,21 @@ namespace RegUsingREGEX
     {
         static void Main()
         {
-            string password = "MyPassw0rd"; // Example password
+            // Input string to check
+            string input = "Hello@World";
 
-            bool isPasswordValid = ValidatePassword(password);
+            // Regular expression pattern
+            string pattern = @"^[A-Za-z0-9]*[@#$%^&+=]$";
 
-            if (isPasswordValid)
-            {
-                Console.WriteLine("Password is valid.");
-            }
-            else
-            {
-                Console.WriteLine("Password is invalid.");
-            }
-        }
+            // Create a Regex object with the pattern
+            Regex regex = new Regex(pattern);
 
-        static bool ValidatePassword(string password)
-        {
-            string pattern = @"\d"; // Regex pattern to match a numeric digit
-            Match match = Regex.Match(password, pattern); // Check if the password contains a numeric digit
+            // Use the Regex.IsMatch() method to check if the input matches the pattern
+            bool hasOneSpecialChar = regex.IsMatch(input);
 
-            if (match.Success)
-            {
-                return true; // The password contains at least one numeric digit
-            }
-            else
-            {
-                return false; // The password does not contain a numeric digit
-            }
+            // Print the result
+            Console.WriteLine("Input string: " + input);
+            Console.WriteLine("Has exactly one special character: " + hasOneSpecialChar);
         }
     }
 }
