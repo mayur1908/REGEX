@@ -11,27 +11,19 @@ namespace RegUsingREGEX
     {
         static void Main(string[] args)
         {
-            //user to enter an email address
-            Console.WriteLine("Enter an email address:");
-            string email = Console.ReadLine();
+            string phoneNumber = "91 9637003670"; // Example phone number in the specified format
 
-            //regex pattern for validating the email address
-            string pattern = @"^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-]?[a-zA-Z0-9]+)*\.[a-zA-Z]{2,}$";
+            string pattern = @"^\d{2}\s\d{10}$"; // Regular expression pattern to match the format
 
-            // Create a Regex object with the pattern
-            Regex regex = new Regex(pattern);
+            bool isValid = Regex.IsMatch(phoneNumber, pattern); // Check if the phone number matches the pattern
 
-            // Use the Match method to check if the email matches the pattern
-            Match match = regex.Match(email);
-
-            // Check if the email matches the pattern
-            if (match.Success)
+            if (isValid)
             {
-                Console.WriteLine("Valid email address");
+                Console.WriteLine("Phone number is valid.");
             }
             else
             {
-                Console.WriteLine("Invalid email address");
+                Console.WriteLine("Phone number is invalid.");
             }
         }
     }
