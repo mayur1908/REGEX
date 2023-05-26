@@ -11,21 +11,32 @@ namespace RegUsingREGEX
     {
         static void Main()
         {
-            // Input string to check
-            string input = "Hello@World";
+            string emailSamples = "example1@example.com, example2@example.com, example3@example.com";
 
-            // Regular expression pattern
-            string pattern = @"^[A-Za-z0-9]*[@#$%^&+=]$";
+            // Step 1: Define a regular expression pattern to match email addresses.
+            string pattern = @"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b";
 
-            // Create a Regex object with the pattern
+            // Step 2: Create a Regex object using the pattern.
             Regex regex = new Regex(pattern);
 
-            // Use the Regex.IsMatch() method to check if the input matches the pattern
-            bool hasOneSpecialChar = regex.IsMatch(input);
+            // Step 3: Use the Regex object to find all matches in the emailSamples string.
+            MatchCollection matches = regex.Matches(emailSamples);
 
-            // Print the result
-            Console.WriteLine("Input string: " + input);
-            Console.WriteLine("Has exactly one special character: " + hasOneSpecialChar);
+            // Step 4: Create an empty string to store the cleared email samples.
+            string clearedEmailSamples = "";
+
+            // Step 5: Iterate over each match and add it to the clearedEmailSamples string.
+            foreach (Match match in matches)
+            {
+                clearedEmailSamples += match.Value + ", ";
+            }
+
+            // Step 6: Remove the trailing comma and space from the clearedEmailSamples string.
+            clearedEmailSamples = clearedEmailSamples.TrimEnd(',', ' ');
+
+            // Step 7: Output the cleared email samples.
+            Console.WriteLine("Cleared email samples:");
+            Console.WriteLine(clearedEmailSamples);
         }
     }
 }
