@@ -11,19 +11,20 @@ namespace RegUsingREGEX
     {
         static void Main(string[] args)
         {
-            string phoneNumber = "91 9637003670"; // Example phone number in the specified format
+            // Regular expression pattern to enforce minimum 8 characters
+            string pattern = ".{8,}";
 
-            string pattern = @"^\d{2}\s\d{10}$"; // Regular expression pattern to match the format
+            // Test password inputs
+            string[] passwords = { "1234567", "password", "securepass", "strongpassword" };
 
-            bool isValid = Regex.IsMatch(phoneNumber, pattern); // Check if the phone number matches the pattern
-
-            if (isValid)
+            foreach (string password in passwords)
             {
-                Console.WriteLine("Phone number is valid.");
-            }
-            else
-            {
-                Console.WriteLine("Phone number is invalid.");
+                // Check if the password matches the pattern
+                bool isMatch = Regex.IsMatch(password, pattern);
+
+                Console.WriteLine($"Password: {password}");
+                Console.WriteLine($"Meets minimum length requirement: {isMatch}");
+                Console.WriteLine();
             }
         }
     }
