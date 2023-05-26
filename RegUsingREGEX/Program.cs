@@ -11,27 +11,27 @@ namespace RegUsingREGEX
     {
         static void Main(string[] args)
         {
-            //user to enter their first name
-            Console.WriteLine("Enter your first name: ");
-            string firstName = Console.ReadLine();
+            //  user to enter a last name
+            Console.WriteLine("Enter your last name:");
+            string lastName = Console.ReadLine();
 
-            // regex pattern for validating the first name
+            //  regular expression pattern
             string pattern = @"^[A-Z][a-zA-Z]{2,}$";
 
-            // Create a regex object with the pattern
+            // Create a Regex object with the pattern
             Regex regex = new Regex(pattern);
 
-            // Use the regex object to match the first name
-            Match match = regex.Match(firstName);
+            // Match the last name against the pattern
+            Match match = regex.Match(lastName);
 
-            // Check if the first name matches the pattern
+            // Check if the last name is valid
             if (match.Success)
             {
-                Console.WriteLine("Valid first name!");
+                Console.WriteLine("Valid last name!");
             }
             else
             {
-                Console.WriteLine("Invalid first name. It should start with a capital letter and have at least 3 characters");
+                Console.WriteLine("Invalid last name. Last name should start with a capital letter and have a minimum of 3 characters.");
             }
         }
     }
